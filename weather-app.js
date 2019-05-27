@@ -1,6 +1,6 @@
 // api key = 83b3dbffead2223ddf32aa025f2e5f66
 
-var city = 'amsterdam'
+var city = 'miami'
 
 function fetchApi() {
 
@@ -114,4 +114,4 @@ function buildBoxInfo(data) {
     
     
 }
-
+//document.body.style.backgroundImage = "url('img_tree.png')";

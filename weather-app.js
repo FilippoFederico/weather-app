@@ -1,6 +1,6 @@
 // api key = 83b3dbffead2223ddf32aa025f2e5f66
 
-var city = 'milan'
+var city = 'amsterdam'
 
 function fetchApi() {
 
@@ -60,7 +60,7 @@ function buildBoxInfo(data) {
     console.log(tempMinShortFixed);
     temperatureMin.innerHTML = 'Temp MIN: ' + tempMinShortFixed + ' °C';
     
-    // set the date
+    // set the current date
     var dateBox = document.querySelector('#date');
     console.log(dateBox);
     var actualDate = new Date();
@@ -68,9 +68,48 @@ function buildBoxInfo(data) {
     dateBox.innerHTML = actualDate;
     
     // set the img icon
-//    var imgIcon = document.querySelector('#img_icon');
-//    var iconUrl = 'http://openweathermap.org/img/w/10d.png';
-//    imgIcon.setAttribute('src', iconUrl);
+    var imgIcon = document.querySelector('#img_icon');
+    
+    
+    
+    var weatherCondition = data.weather[0].description;
+    console.log(weatherCondition);
+    
+    var weatherMainCondition = data.weather[0].main;
+    console.log(weatherMainCondition);
+    
+//    var iconUrl = 'http://openweathermap.org/img/w/' + icon +'';
+    
+    if(weatherCondition == 'light rain'){
+//        var icon = '50d.png';
+        var iconUrl = 'http://openweathermap.org/img/w/10d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    } else if(weatherCondition == 'clear sky'){
+//        var icon = '11d.png';
+        var iconUrl = 'http://openweathermap.org/img/w/01d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    } else if(weatherCondition == 'few clouds'){
+        var iconUrl = 'http://openweathermap.org/img/w/02d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    } else if(weatherCondition == 'scattered clouds'){
+        var iconUrl = 'http://openweathermap.org/img/w/03d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    } else if(weatherCondition == 'broken clouds'){
+        var iconUrl = 'http://openweathermap.org/img/w/04d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    } else if(weatherCondition == 'shower rain'){
+        var iconUrl = 'http://openweathermap.org/img/w/09d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    } else if(weatherCondition == 'thunderstorm'){
+        var iconUrl = 'http://openweathermap.org/img/w/11d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    } else if(weatherCondition == 'snow'){
+        var iconUrl = 'http://openweathermap.org/img/w/13d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    } else if(weatherCondition == 'mist'){
+        var iconUrl = 'http://openweathermap.org/img/w/50d.png';
+        imgIcon.setAttribute('src', iconUrl);
+    }
     
     
     

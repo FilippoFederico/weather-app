@@ -1,44 +1,77 @@
-.main_div{
-    width: 100%;
+.main_div {
+    width: 75%;
     height: 100%;
-    
+
     border: 1px solid black;
     background-color: white;
     box-shadow: 5px 8px grey;
-    
-/*    background-color: darkseagreen;*/
-/*    background-image: url("http://openweathermap.org/img/w/01d.png");*/
     margin: auto;
-    margin-top: 20px;
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
 }
-.info_div{
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: center;
+
+.h1_class {
+    font-size: 100px;
+    margin-top: 40px;
 }
-.box{
+.h4_class {
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.input_btn{
+    width: 80%;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.input_class {
+    width: 60%;
+    height: 100px;
+    background-color: white;  
+    text-align: center;
+    margin: auto;
+    border: 1px solid lightgrey;
+    font-size: 40px;
+    color: black;
+}
+.btn_class{
+    width: 20%;
+    height: 100px;
+    background-color: lightgrey;
+    text-align: center;
+    margin: auto;
+    font-size: 40px;
+    color: black;
+}
+.info_div {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    
+}
+
+.box {
     width: 100%;
-    height: 300px;
     margin: auto;
     border-radius: 5px;
     text-align: center;
     padding: 10px;
     margin-bottom: 30px;
 }
-input{
-    width: 65%;
-    height: 40px;
-    background-color: white;
-    border-radius: 5px;
-    padding: 5px 10px 5px 10px;
-}
-.input_class{
-    margin-top: 20px;
-    text-align: center;
-}
-/*
-#tempMain{
+
+
+
+
+#tempMain {
+    width: 75%;
     height: 100%;
-}*/
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: 5px 8px grey;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}

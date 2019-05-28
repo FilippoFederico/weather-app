@@ -1,5 +1,4 @@
-
-var city = 'berlin';
+var city = '';
 
 function fetchApi() {
 
@@ -12,7 +11,7 @@ function fetchApi() {
         })
         .then(function (data) {
             console.log(data);
-        
+
             buildBoxInfo(data);
 
         });
@@ -25,7 +24,7 @@ fetchApi()
 function buildBoxInfo(data) {
 
     // set the name of the city + country
-    
+
     var nameCityHTML = document.querySelector('#city_name');
     var nameCityAPI = data.name;
     var nameCountryAPI = data.sys.country;
@@ -77,50 +76,50 @@ function buildBoxInfo(data) {
     var weatherMainCondition = data.weather[0].main;
     console.log(weatherMainCondition);
 
-    //    var iconUrl = 'http://openweathermap.org/img/w/' + icon +'';
+    var bodyVar = document.querySelector('#body');
 
-    if (weatherCondition == 'light rain') {
-        var iconUrl = 'http://openweathermap.org/img/w/10d.png';
-        imgIcon.setAttribute('src', iconUrl);
-        
+    if (weatherMainCondition == 'Rain') {
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/10d.png)';
+
     } else if (weatherCondition == 'clear sky') {
-        var iconUrl = 'http://openweathermap.org/img/w/01d.png';
-        imgIcon.setAttribute('src', iconUrl);
         
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/01d.png)';
+
     } else if (weatherCondition == 'few clouds') {
-        var iconUrl = 'http://openweathermap.org/img/w/02d.png';
-        imgIcon.setAttribute('src', iconUrl);
         
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/02d.png)';
+
     } else if (weatherCondition == 'scattered clouds') {
-        var iconUrl = 'http://openweathermap.org/img/w/03d.png';
-        imgIcon.setAttribute('src', iconUrl);
         
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/03d.png)';
+
     } else if (weatherCondition == 'broken clouds') {
-        var iconUrl = 'http://openweathermap.org/img/w/04d.png';
-        imgIcon.setAttribute('src', iconUrl);
         
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/04d.png)';
+
     } else if (weatherCondition == 'shower rain') {
-        var iconUrl = 'http://openweathermap.org/img/w/09d.png';
-        imgIcon.setAttribute('src', iconUrl);
         
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/09d.png)';
+
     } else if (weatherCondition == 'thunderstorm') {
-        var iconUrl = 'http://openweathermap.org/img/w/11d.png';
-        imgIcon.setAttribute('src', iconUrl);
         
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/11d.png)';
+
     } else if (weatherCondition == 'snow') {
-        var iconUrl = 'http://openweathermap.org/img/w/13d.png';
-        imgIcon.setAttribute('src', iconUrl);
         
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/13d.png)';
+
     } else if (weatherCondition == 'mist') {
-        var iconUrl = 'http://openweathermap.org/img/w/50d.png';
-        imgIcon.setAttribute('src', iconUrl);
+        
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/50d.png)';
+
     }
 
 }
 
 
 function filterCity(data) {
-    
+
     console.log('event')
     console.log(event);
 

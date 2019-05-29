@@ -15,28 +15,32 @@
     font-size: 100px;
     margin-top: 40px;
 }
+
 .h4_class {
     font-size: 40px;
     margin-top: 10px;
     margin-bottom: 30px;
 }
-.input_btn{
+
+.input_btn {
     width: 80%;
     height: 100px;
     margin: auto;
     margin-bottom: 30px;
 }
+
 .input_class {
     width: 60%;
     height: 100px;
-    background-color: white;  
+    background-color: white;
     text-align: center;
     margin: auto;
     border: 1px solid lightgrey;
     font-size: 40px;
     color: black;
 }
-.btn_class{
+
+.btn_class {
     width: 20%;
     height: 100px;
     background-color: lightgrey;
@@ -45,11 +49,12 @@
     font-size: 40px;
     color: black;
 }
+
 .info_div {
     margin-top: 100px;
     margin-bottom: 50px;
     text-align: center;
-    
+
 }
 
 .box {
@@ -72,20 +77,25 @@
     box-shadow: 5px 8px grey;
     margin: auto;
     margin-top: 20px;
-    display: none;
-    
+/*    display: none;*/
+
 }
-.forecast_class{
+
+.forecast_class {
     width: 75%;
     height: 100%;
     margin: auto;
     border: 1px solid red;
     margin-top: 50px;
+    margin-bottom: 50px;
     background-color: pink;
     display: flex;
     flex-wrap: wrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
-.micro_div{
+
+.micro_div {
     width: 48%;
     height: 100%;
     border: 1px solid red;
@@ -99,10 +109,20 @@
     font-size: 30px;
     padding: 10px;
 }
-.btn_micro_div{
+
+.btn_micro_div {
     width: 50%;
     height: 50%;
     margin: auto;
     background-color: lightgrey;
-    
+
 }
+.btn_details{
+    width: 40%;
+    height: 100px;
+    margin: auto;
+    background-color: lightgrey;
+    font-size: 30px;
+    margin-top: 30px;
+}
+

@@ -1,3 +1,6 @@
+document.querySelector('#tempMain').style.display = "none";
+document.querySelector('#forecast').style.display = "none";
+
 var city = '';
 
 function fetchApi() {
@@ -14,6 +17,7 @@ function fetchApi() {
 
             buildBoxInfo(data);
             console.log('fetch')
+        
         });
 
 }
@@ -80,6 +84,7 @@ function buildBoxInfo(data) {
     var weatherMainCondition = data.weather[0].main;
     console.log(weatherMainCondition);
 
+    
     // ---
 
     if (weatherMainCondition == 'Rain') {
@@ -117,8 +122,10 @@ function buildBoxInfo(data) {
 
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/50d.png)';
 
-    }
+    } else if (weatherMainCondition == 'Drizzle') {
 
+        bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/09d.png)';
+    }
 }
 
 
@@ -143,6 +150,7 @@ function filterCity(data) {
     city = valueFromInputHTML;
 
     fetchApi()
+    
 }
 
 function fetchForecast() {
@@ -156,23 +164,21 @@ function fetchForecast() {
         })
         .then(function (data) {
             console.log(data);
-            console.log(data.list[0]);
-
-
-
-            //        console.log(listHours[0].main.temp)
-            // clouds > dt_txt (data ora)
-            // main
-            buildForecastSection(data);
+            console.log(data.city.name);         
+        buildForecastSection(data)
         });
 
 }
-fetchForecast()
+//fetchForecast()
+
+
 
 
 
 function buildForecastSection(data) {
-
+//console.log(document.querySelector('#forecast'))
+document.querySelector('#forecast').style.display = "flex";
+    
     var mainDivForecast = document.querySelector('#forecast');
 
 
@@ -190,11 +196,10 @@ function buildForecastSection(data) {
 
         mainDivForecast.appendChild(microDiv);
 
-        //         console.log(mainDivForecast);
+//                 console.log(mainDivForecast);
 
-        for (y = 0; y < listForecast.length; y++) {
             var allForecast = listForecast[i].dt_txt;
-            console.log(allForecast);
+//            console.log(allForecast);
 
             microDiv.innerHTML = allForecast;
 
@@ -203,9 +208,9 @@ function buildForecastSection(data) {
             microDiv.appendChild(btnMicroDiv);
             btnMicroDiv.innerHTML = 'PRESS';
 
-        }
 
 
     }
     console.log(mainDivForecast);
+    
 }

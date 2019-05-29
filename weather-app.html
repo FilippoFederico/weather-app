@@ -15,7 +15,9 @@
         <h4 class="h4_class">Choose the city</h4>
         <div class="input_btn">
             <input id="input_city" type="text" placeholder="Write here..." class="input_class" value="">
-            <button id='search-button' onclick="filterCity()" class="btn_class">GO!</button>
+            <button id='search-button' onclick="filterCity()" class="btn_class">
+                <p class="h4_class">GO!</p>
+            </button>
         </div>
     </div>
 
@@ -25,15 +27,16 @@
             <p id="temp" class="h4_class">Temperature</p>
             <p id="temp_max" class="h4_class">Temp max</p>
             <p id="temp_min" class="h4_class">Temp min</p>
-<!--            <img id="img_icon">-->
             <p id="date">Date</p>
-            <input type="checkbox" name="vehicle1" value="Bike"> Show next hours!
+            <button class="btn_details" onclick="fetchForecast()">Show more</button>
+
+
         </div>
 
     </div>
-    
+
     <div id="forecast" class="forecast_class">
-        
+
     </div>
 
 

@@ -72,6 +72,37 @@
     box-shadow: 5px 8px grey;
     margin: auto;
     margin-top: 20px;
+    display: none;
+    
+}
+.forecast_class{
+    width: 75%;
+    height: 100%;
+    margin: auto;
+    border: 1px solid red;
+    margin-top: 50px;
+    background-color: pink;
     display: flex;
+    flex-wrap: wrap;
+}
+.micro_div{
+    width: 48%;
+    height: 100%;
+    border: 1px solid red;
+    margin: auto;
+    margin-bottom: 5px;
+    background-color: white;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    font-size: 30px;
+    padding: 10px;
+}
+.btn_micro_div{
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    background-color: lightgrey;
+    
 }

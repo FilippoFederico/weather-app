@@ -13,7 +13,7 @@ function fetchApi() {
             console.log(data);
 
             buildBoxInfo(data);
-
+            console.log('fetch')
         });
 
 }
@@ -23,7 +23,11 @@ fetchApi()
 
 function buildBoxInfo(data) {
 
+    var bodyVar = document.querySelector('#body');
+    bodyVar.style.backgroundColor = "lightblue";
+
     // set the name of the city + country
+    console.log('buildBoxInfo')
 
     var nameCityHTML = document.querySelector('#city_name');
     var nameCityAPI = data.name;
@@ -76,41 +80,41 @@ function buildBoxInfo(data) {
     var weatherMainCondition = data.weather[0].main;
     console.log(weatherMainCondition);
 
-    var bodyVar = document.querySelector('#body');
+    // ---
 
     if (weatherMainCondition == 'Rain') {
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/10d.png)';
 
     } else if (weatherCondition == 'clear sky') {
-        
+
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/01d.png)';
 
     } else if (weatherCondition == 'few clouds') {
-        
+
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/02d.png)';
 
     } else if (weatherCondition == 'scattered clouds') {
-        
+
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/03d.png)';
 
     } else if (weatherCondition == 'broken clouds') {
-        
+
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/04d.png)';
 
     } else if (weatherCondition == 'shower rain') {
-        
+
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/09d.png)';
 
     } else if (weatherCondition == 'thunderstorm') {
-        
+
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/11d.png)';
 
     } else if (weatherCondition == 'snow') {
-        
+
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/13d.png)';
 
     } else if (weatherCondition == 'mist') {
-        
+
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/50d.png)';
 
     }
@@ -119,6 +123,13 @@ function buildBoxInfo(data) {
 
 
 function filterCity(data) {
+
+    //   var bodyVar = document.querySelector('#body');
+    //    bodyVar.style.backgroundColor = "white"; 
+    //    document.querySelector('#body').style.backgroundColor = "white";
+    document.querySelector('#tempMain').style.display = "block";
+
+    console.log('filterCity')
 
     console.log('event')
     console.log(event);
@@ -132,4 +143,69 @@ function filterCity(data) {
     city = valueFromInputHTML;
 
     fetchApi()
+}
+
+function fetchForecast() {
+
+    const url = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=83b3dbffead2223ddf32aa025f2e5f66'
+
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+
+        })
+        .then(function (data) {
+            console.log(data);
+            console.log(data.list[0]);
+
+
+
+            //        console.log(listHours[0].main.temp)
+            // clouds > dt_txt (data ora)
+            // main
+            buildForecastSection(data);
+        });
+
+}
+fetchForecast()
+
+
+
+function buildForecastSection(data) {
+
+    var mainDivForecast = document.querySelector('#forecast');
+
+
+    var listForecast = data.list;
+    console.log(listForecast)
+    //    var allForecast = listForecast[0].dt_txt;
+    //    console.log(allForecast)
+
+    for (i = 0; i < listForecast.length; i++) {
+
+        var microDiv = document.createElement('div');
+        microDiv.setAttribute('class', 'micro_div');
+
+
+
+        mainDivForecast.appendChild(microDiv);
+
+        //         console.log(mainDivForecast);
+
+        for (y = 0; y < listForecast.length; y++) {
+            var allForecast = listForecast[i].dt_txt;
+            console.log(allForecast);
+
+            microDiv.innerHTML = allForecast;
+
+            var btnMicroDiv = document.createElement('button');
+            btnMicroDiv.setAttribute('class', 'btn_micro_div');
+            microDiv.appendChild(btnMicroDiv);
+            btnMicroDiv.innerHTML = 'PRESS';
+
+        }
+
+
+    }
+    console.log(mainDivForecast);
 }

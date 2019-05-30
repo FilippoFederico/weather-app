@@ -17,7 +17,7 @@ function fetchApi() {
 
             buildBoxInfo(data);
             console.log('fetch')
-        
+
         });
 
 }
@@ -31,7 +31,7 @@ function buildBoxInfo(data) {
     bodyVar.style.backgroundColor = "lightblue";
 
     // set the name of the city + country
-    console.log('buildBoxInfo')
+    console.log(data.id)
 
     var nameCityHTML = document.querySelector('#city_name');
     var nameCityAPI = data.name;
@@ -84,7 +84,7 @@ function buildBoxInfo(data) {
     var weatherMainCondition = data.weather[0].main;
     console.log(weatherMainCondition);
 
-    
+
     // ---
 
     if (weatherMainCondition == 'Rain') {
@@ -126,6 +126,34 @@ function buildBoxInfo(data) {
 
         bodyVar.style.backgroundImage = 'url(http://openweathermap.org/img/w/09d.png)';
     }
+
+    //push data.id to btn "show more"
+
+    var idCityChosen = data.id;
+    console.log(idCityChosen);
+
+    var btnShowMore = document.querySelector('.btn_details');
+
+    btnShowMore.addEventListener('click', function (event) {
+
+        btnShowMore.setAttribute('id', idCityChosen);
+        console.log(btnShowMore);
+        
+        var idFromEvent = event.target.id;
+        
+        idCity = idFromEvent;
+            console.log(idCity);
+        
+ fetchForecast(event);
+        
+        
+        
+//        if(idCity != idFromEvent){
+//            document.querySelector('#forecast').style.display = "none";
+//        }
+    })
+
+
 }
 
 
@@ -138,7 +166,7 @@ function filterCity(data) {
 
     console.log('filterCity')
 
-    console.log('event')
+//    console.log('event')
     console.log(event);
 
     var inputCityHTML = document.querySelector('#input_city');
@@ -150,13 +178,15 @@ function filterCity(data) {
     city = valueFromInputHTML;
 
     fetchApi()
-    
+
 }
 
-function fetchForecast() {
+var idCity = '';
 
-    const url = 'http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=83b3dbffead2223ddf32aa025f2e5f66'
+function fetchForecast(event) {
 
+    const url = 'http://api.openweathermap.org/data/2.5/forecast?id=' + idCity + '&APPID=83b3dbffead2223ddf32aa025f2e5f66'
+//  524901
     fetch(url)
         .then(function (response) {
             return response.json();
@@ -164,21 +194,25 @@ function fetchForecast() {
         })
         .then(function (data) {
             console.log(data);
-            console.log(data.city.name);         
-        buildForecastSection(data)
+            console.log(data.city.name);
+
+        
+        
+            buildForecastSection(data);
+        
+        
         });
 
 }
-//fetchForecast()
 
 
 
 
 
 function buildForecastSection(data) {
-//console.log(document.querySelector('#forecast'))
-document.querySelector('#forecast').style.display = "flex";
-    
+    //console.log(document.querySelector('#forecast'))
+    document.querySelector('#forecast').style.display = "flex";
+
     var mainDivForecast = document.querySelector('#forecast');
 
 
@@ -191,26 +225,32 @@ document.querySelector('#forecast').style.display = "flex";
 
         var microDiv = document.createElement('div');
         microDiv.setAttribute('class', 'micro_div');
+        var pName = document.createElement('p');
+        var pDate = document.createElement('p');
 
-
+microDiv.appendChild(pName);
+        microDiv.appendChild(pDate);
 
         mainDivForecast.appendChild(microDiv);
 
-//                 console.log(mainDivForecast);
+        //                 console.log(mainDivForecast);
 
-            var allForecast = listForecast[i].dt_txt;
-//            console.log(allForecast);
+        var allForecast = listForecast[i].dt_txt;
+        //            console.log(allForecast);
+var nameCityForecast = data.city.name;
+//        console.log(nameCityForecast);
+        
+        pDate.innerHTML = allForecast;
+        pName.innerHTML = nameCityForecast;
 
-            microDiv.innerHTML = allForecast;
-
-            var btnMicroDiv = document.createElement('button');
-            btnMicroDiv.setAttribute('class', 'btn_micro_div');
-            microDiv.appendChild(btnMicroDiv);
-            btnMicroDiv.innerHTML = 'PRESS';
+        var btnMicroDiv = document.createElement('button');
+        btnMicroDiv.setAttribute('class', 'btn_micro_div');
+        microDiv.appendChild(btnMicroDiv);
+        btnMicroDiv.innerHTML = 'PRESS';
 
 
 
     }
     console.log(mainDivForecast);
-    
+
 }

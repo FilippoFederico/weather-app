@@ -95,15 +95,17 @@
 }
 
 .micro_div {
-    width: 49%;
+    width: 49.5%;
     height: 100%;
     margin: auto;
-    margin-bottom: 5px;
+    margin-bottom: 11px;
     background-color: white;
     text-align: center;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
     font-size: 30px;
     padding: 10px;
     box-shadow: 5px 8px grey;
@@ -124,4 +126,7 @@
     font-size: 30px;
     margin-top: 30px;
 }
-
+.icon_forecast{
+    width: 30%;
+    margin: auto;
+}

@@ -116,6 +116,9 @@
     height: 50%;
     margin: auto;
     background-color: lightgrey;
+    font-size: 40px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 
 }
 .btn_details{
@@ -127,6 +130,34 @@
     margin-top: 30px;
 }
 .icon_forecast{
-    width: 30%;
+    width: 40%;
     margin: auto;
+    margin-bottom: 20px;
+}
+.p_date{
+    width: 80%;
+    font-size: 40px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.p_name{
+    width: 80%;
+    font-size: 40px;
+    font-weight: bold;
+    border-bottom: 4px solid lightgrey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.h4_forecast{
+    width: 80%;
+    font-size: 40px;
+    font-weight: bold;
+    margin: auto;
+    margin-bottom: 20px;
+    
+}
+.div_icontemp{
+    width: 300px;
+    height: 200px;
+    padding-bottom: 0px;
 }

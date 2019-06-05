@@ -5,14 +5,13 @@
     background-color: white;
     box-shadow: 5px 8px grey;
     margin: auto;
-    margin-top: 0px;
+    
     display: flex;
     flex-direction: column;
 }
 
 .h1_class {
     font-size: 100px;
-    margin-top: 40px;
 }
 
 .h4_class {
@@ -50,7 +49,7 @@
 }
 
 .info_div {
-    margin-top: 100px;
+    margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
 
@@ -157,7 +156,112 @@
     
 }
 .div_icontemp{
-    width: 300px;
-    height: 200px;
+    
+    height: 100%;
     padding-bottom: 0px;
+    display: none;
+}
+
+.div_icontemp_block{
+    
+    height: 100%;
+    padding-bottom: 0px;
+    display: block;
+}
+
+
+.logo_login{
+    width: 75%;
+    height: 100%;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15px;
+    box-shadow: 5px 8px grey;
+    
+}
+.logo_name{
+    width: 40%;
+    height: 100%;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: auto;
+    margin-top: 11px;
+    padding: 10px;
+}
+.login{
+    width: 30%;
+    height: 100%;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: lightgrey;
+    padding: 10px;
+    
+}
+#isLogin{
+    width: 75%;
+    height: 100%;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    box-shadow: 5px 8px grey;
+    font-size: 30px;
+}
+#chat{
+    width: 75%;
+    height: 100%;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+#message{
+    border: 1px solid lightgrey;
+    box-shadow: 5px 4px lightgrey;
+    margin-bottom: 10px;
+}
+.btn_chat{
+    border: 1px solid lightgrey;
+    box-shadow: 5px 4px grey;
+    padding: 15px;
+}
+#posts{
+    width: 75%;
+    height: 100%;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    border: 1px solid lightgrey;
+    box-shadow: 5px 4px lightgrey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.div_message{
+    
+    height: 100%;
+    background-color: aliceblue;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }

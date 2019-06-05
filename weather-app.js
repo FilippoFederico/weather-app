@@ -188,6 +188,8 @@ function fetchForecast(event) {
             console.log(data.city.name);
 
             buildForecastSection(data);
+            alert('FETCHforecast')
+            console.log('FETCHforecast')
 
         });
 
@@ -200,6 +202,8 @@ function buildForecastSection(data) {
     document.querySelector('#forecast').innerHTML = ""
     document.querySelector('#forecast').style.display = "flex";
 
+
+
     var mainDivForecast = document.querySelector('#forecast');
 
 
@@ -210,9 +214,6 @@ function buildForecastSection(data) {
 
         var microDiv = document.createElement('div');
         microDiv.setAttribute('class', 'micro_div');
-        //        microDiv.setAttribute('onmouseover', 'mouseOn()');
-        //        microDiv.setAttribute('onmouseout', 'mouseOut()');
-
 
         var pName = document.createElement('p');
         var pDate = document.createElement('p');
@@ -233,28 +234,54 @@ function buildForecastSection(data) {
 
         pDate.innerHTML = allForecast;
         pName.innerHTML = nameCityForecast;
-        
+
         var divIconTemp = document.createElement('div');
         divIconTemp.setAttribute('class', 'div_icontemp');
-        divIconTemp.setAttribute('id', "div" + dtForecast) 
+        divIconTemp.setAttribute('id', "div" + dtForecast)
 
         microDiv.appendChild(divIconTemp);
 
         console.log(divIconTemp)
 
+
+
         var btnMicroDiv = document.createElement('button');
         btnMicroDiv.setAttribute('class', 'btn_micro_div');
 
         btnMicroDiv.setAttribute('id', listForecast[i].dt);
-        
+
         //        microDiv.appendChild(h4Forecast);
         microDiv.appendChild(btnMicroDiv);
 
         btnMicroDiv.innerHTML = 'PRESS';
 
+
         btnMicroDiv.addEventListener('click', function (event) {
+
+
+
+
+            //        if(document.getElementById("div" + event.target.id).style.display = "none"){
+            //                alert('noooone')
+            ////     document.getElementById("div" + event.target.id).style.display = "";
+            //            }
+
+            console.log(document.getElementById("div" + event.target.id).style.display);
+
+            //            document.getElementById("div" + event.target.id).style.display = "block";
+
             clickForecastInfo(data, divIconTemp)
             console.log(event)
+            console.log('CLLLLLICKED')
+
+            //            if(document.getElementById("div" + event.target.id).style.display = "none"){
+            //                alert('BLOOOOOOOCK //// none')
+            //                document.getElementById("div" + event.target.id).style.display = "block"
+            //     document.querySelector('.div_icontemp').style.backgroundColor = "red";
+            //            } else {
+            //                document.querySelector('.div_icontemp').style.backgroundColor = "green";
+            //            }
+
         })
     }
     console.log(mainDivForecast);
@@ -263,16 +290,21 @@ function buildForecastSection(data) {
 function clickForecastInfo(data, divIconTemp) {
     console.log('ciaooooooooo')
 
+
+
+
+
     console.log(data)
 
     var btnMicrodiv = document.querySelector('.btn_micro_div');
 
     var eventTargetId = document.getElementById("div" + event.target.id);
 
-btnMicrodiv.innerHTML = 'X'
+    eventTargetId.innerHTML = ""
 
     //    console.log(microDivForecast)
     console.log(btnMicrodiv)
+    console.log(btnMicrodiv.id)
     //        console.log(divIconTemp);
     console.log(eventTargetId); //
 
@@ -280,18 +312,29 @@ btnMicrodiv.innerHTML = 'X'
     let listForecast = data.list;
     console.log(listForecast);
 
-
-
-    for (var i = 0; i < listForecast.length; i++) {
+    console.log(eventTargetId.classList.value)
+    
+    if(eventTargetId.classList.value == "div_icontemp"){
+        
+        
+        
+        
+        for (var i = 0; i < listForecast.length; i++) {
 
         //        console.log(event.target.id)
         //        console.log(listForecast[i].dt)
         if (event.target.id == listForecast[i].dt) {
+            
+            eventTargetId.classList.remove("div_icontemp");
+            eventTargetId.classList.add("div_icontemp_block");
+            console.log(eventTargetId.className)
             console.log("inside if")
             var imgForecast = document.createElement('img');
             imgForecast.setAttribute('src', '');
             imgForecast.setAttribute('class', 'icon_forecast');
             eventTargetId.appendChild(imgForecast);
+
+
 
 
             console.log(listForecast[i])
@@ -307,7 +350,6 @@ btnMicrodiv.innerHTML = 'X'
             if (weatherMainForecast == 'Rain') {
 
                 imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/10d.png');
-
 
             } else if (weatherDescriptionForecast == 'clear sky') {
 
@@ -343,7 +385,7 @@ btnMicrodiv.innerHTML = 'X'
 
             } else if (weatherDescriptionForecast == 'mist') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/50d.png');;
+                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/50d.png');
 
             } else if (weatherMainForecast == 'Drizzle') {
 
@@ -366,7 +408,134 @@ btnMicrodiv.innerHTML = 'X'
 
             eventTargetId.appendChild(h4Forecast);
 
-        }
+            console.log('END')
 
+
+
+        }
+        
+        
+        
     }
+        }
+     else {
+            
+             eventTargetId.classList.replace("div_icontemp_block", "div_icontemp");
+    }
+
+
+
+}
+
+document.querySelector('#isLogin').style.display = "none";
+
+
+let userName = ''
+let email = ''
+
+function logIn() {
+    console.log(firebase)
+
+    //display chat + back btn
+    if (document.querySelector('#isLogin').style.display == "none") {
+
+        alert('NOOOOONE')
+        document.querySelector('#isLogin').style.display = "flex";
+
+
+        var btnLog = document.getElementById('log');
+        btnLog.innerHTML = "back";
+        console.log(btnLog)
+
+    } else
+    //hide chat + login btn
+    {
+        alert('FLEEEEEEX')
+        document.querySelector('#isLogin').style.display = "none";
+        var btnLog = document.getElementById('log');
+        btnLog.innerHTML = "login"
+    }
+
+
+
+
+
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function (result) {
+
+        // The signed-in user info.
+        var token = result.credential.accessToken;
+        var user = result.user;
+        userName = user.displayName
+        email = user.email
+        console.log('Logged in successfully')
+        console.log(userName)
+        console.log(email)
+        console.log(user)
+        getPost()
+
+    }).catch(function (error) {
+        // Handle Errors here.
+        console.log(error)
+        // ...
+    });
+
+}
+
+var database = firebase.database()
+
+//onclick -> logIn()
+
+
+//-------------
+
+
+var database = firebase.database();
+
+function writeNewPost() {
+
+    let message = document.getElementById('message').value
+    console.log(message)
+
+    // A post entry.
+    var postData = {
+        author: userName,
+        body: message,
+        date: new Date().toISOString()
+    };
+
+    console.log(postData)
+
+    // Get a key for a new Post.
+    var newPostKey = firebase.database().ref().child('posts').push().key;
+
+    // Write the new post's data simultaneously in the posts list and the user's post list.
+    var updates = {};
+    updates['/posts/' + newPostKey] = postData;
+    // updates['/user-posts/' + newPostKey] = postData;
+
+    return firebase.database().ref().update(updates);
+}
+
+function getPost() {
+    let chatBox = document.getElementById('posts')
+    firebase.database().ref('posts/').on('value', function (result) {
+        console.log(result.val())
+        let allPost = result.val();
+        let template = '';
+        for (key in allPost) {
+            console.log(allPost[key].author)
+            let author = allPost[key].author
+            let message = allPost[key].body
+            let date = allPost[key].date
+            template += `<div class="div_message">
+                            <p>${author}</p>
+                            <p>${message}</p>
+                            <p>${date}</p>
+                        </div>`
+        }
+        chatBox.innerHTML = template
+        console.log(template)
+    });
 }

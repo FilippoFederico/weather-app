@@ -188,7 +188,7 @@ function fetchForecast(event) {
             console.log(data.city.name);
 
             buildForecastSection(data);
-            alert('FETCHforecast')
+//            alert('FETCHforecast')
             console.log('FETCHforecast')
 
         });
@@ -258,30 +258,12 @@ function buildForecastSection(data) {
 
         btnMicroDiv.addEventListener('click', function (event) {
 
-
-
-
-            //        if(document.getElementById("div" + event.target.id).style.display = "none"){
-            //                alert('noooone')
-            ////     document.getElementById("div" + event.target.id).style.display = "";
-            //            }
-
             console.log(document.getElementById("div" + event.target.id).style.display);
-
-            //            document.getElementById("div" + event.target.id).style.display = "block";
 
             clickForecastInfo(data, divIconTemp)
             console.log(event)
             console.log('CLLLLLICKED')
-
-            //            if(document.getElementById("div" + event.target.id).style.display = "none"){
-            //                alert('BLOOOOOOOCK //// none')
-            //                document.getElementById("div" + event.target.id).style.display = "block"
-            //     document.querySelector('.div_icontemp').style.backgroundColor = "red";
-            //            } else {
-            //                document.querySelector('.div_icontemp').style.backgroundColor = "green";
-            //            }
-
+            
         })
     }
     console.log(mainDivForecast);
@@ -289,10 +271,6 @@ function buildForecastSection(data) {
 
 function clickForecastInfo(data, divIconTemp) {
     console.log('ciaooooooooo')
-
-
-
-
 
     console.log(data)
 
@@ -316,9 +294,6 @@ function clickForecastInfo(data, divIconTemp) {
 
     if (eventTargetId.classList.value == "div_icontemp") {
 
-
-
-
         for (var i = 0; i < listForecast.length; i++) {
 
             //        console.log(event.target.id)
@@ -333,9 +308,6 @@ function clickForecastInfo(data, divIconTemp) {
                 imgForecast.setAttribute('src', '');
                 imgForecast.setAttribute('class', 'icon_forecast');
                 eventTargetId.appendChild(imgForecast);
-
-
-
 
                 console.log(listForecast[i])
                 var weatherMainForecast = listForecast[i].weather[0].main;
@@ -410,19 +382,13 @@ function clickForecastInfo(data, divIconTemp) {
 
                 console.log('END')
 
-
-
             }
-
-
 
         }
     } else {
 
         eventTargetId.classList.replace("div_icontemp_block", "div_icontemp");
     }
-
-
 
 }
 
@@ -438,7 +404,7 @@ function logIn() {
     //display chat + back btn
     if (document.querySelector('#isLogin').style.display == "none") {
 
-        alert('NOOOOONE')
+//        alert('NOOOOONE')
         document.querySelector('#isLogin').style.display = "flex";
 
 
@@ -449,15 +415,11 @@ function logIn() {
     } else
     //hide chat + login btn
     {
-        alert('FLEEEEEEX')
+//        alert('FLEEEEEEX')
         document.querySelector('#isLogin').style.display = "none";
         var btnLog = document.getElementById('log');
         btnLog.innerHTML = "login"
     }
-
-
-
-
 
     var provider = new firebase.auth.GoogleAuthProvider();
 

@@ -26,7 +26,7 @@ fetchApi()
 
 function buildBoxInfo(data) {
 
-    var bodyVar = document.querySelector('#body');
+    var bodyVar = document.getElementById('body');
     bodyVar.style.backgroundColor = "lightblue";
 
     // set the name of the city + country
@@ -313,114 +313,113 @@ function clickForecastInfo(data, divIconTemp) {
     console.log(listForecast);
 
     console.log(eventTargetId.classList.value)
-    
-    if(eventTargetId.classList.value == "div_icontemp"){
-        
-        
-        
-        
+
+    if (eventTargetId.classList.value == "div_icontemp") {
+
+
+
+
         for (var i = 0; i < listForecast.length; i++) {
 
-        //        console.log(event.target.id)
-        //        console.log(listForecast[i].dt)
-        if (event.target.id == listForecast[i].dt) {
-            
-            eventTargetId.classList.remove("div_icontemp");
-            eventTargetId.classList.add("div_icontemp_block");
-            console.log(eventTargetId.className)
-            console.log("inside if")
-            var imgForecast = document.createElement('img');
-            imgForecast.setAttribute('src', '');
-            imgForecast.setAttribute('class', 'icon_forecast');
-            eventTargetId.appendChild(imgForecast);
+            //        console.log(event.target.id)
+            //        console.log(listForecast[i].dt)
+            if (event.target.id == listForecast[i].dt) {
+
+                eventTargetId.classList.remove("div_icontemp");
+                eventTargetId.classList.add("div_icontemp_block");
+                console.log(eventTargetId.className)
+                console.log("inside if")
+                var imgForecast = document.createElement('img');
+                imgForecast.setAttribute('src', '');
+                imgForecast.setAttribute('class', 'icon_forecast');
+                eventTargetId.appendChild(imgForecast);
 
 
 
 
-            console.log(listForecast[i])
-            var weatherMainForecast = listForecast[i].weather[0].main;
-            console.log(weatherMainForecast);
+                console.log(listForecast[i])
+                var weatherMainForecast = listForecast[i].weather[0].main;
+                console.log(weatherMainForecast);
 
-            var weatherDescriptionForecast = listForecast[i].weather[0].description;
-            //        console.log(weatherDescriptionForecast);
+                var weatherDescriptionForecast = listForecast[i].weather[0].description;
+                //        console.log(weatherDescriptionForecast);
 
-            //        console.log(microDiv)
-            // ---
+                //        console.log(microDiv)
+                // ---
 
-            if (weatherMainForecast == 'Rain') {
+                if (weatherMainForecast == 'Rain') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/10d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/10d.png');
 
-            } else if (weatherDescriptionForecast == 'clear sky') {
+                } else if (weatherDescriptionForecast == 'clear sky') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/01d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/01d.png');
 
-            } else if (weatherDescriptionForecast == 'few clouds') {
+                } else if (weatherDescriptionForecast == 'few clouds') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/02d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/02d.png');
 
-            } else if (weatherDescriptionForecast == 'scattered clouds') {
+                } else if (weatherDescriptionForecast == 'scattered clouds') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/03d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/03d.png');
 
-            } else if (weatherDescriptionForecast == 'overcast clouds') {
+                } else if (weatherDescriptionForecast == 'overcast clouds') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/04d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/04d.png');
 
-            } else if (weatherDescriptionForecast == 'broken clouds') {
+                } else if (weatherDescriptionForecast == 'broken clouds') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/04d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/04d.png');
 
-            } else if (weatherDescriptionForecast == 'shower rain') {
+                } else if (weatherDescriptionForecast == 'shower rain') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/09d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/09d.png');
 
-            } else if (weatherDescriptionForecast == 'thunderstorm') {
+                } else if (weatherDescriptionForecast == 'thunderstorm') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/11d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/11d.png');
 
-            } else if (weatherMainForecast == 'Snow') {
+                } else if (weatherMainForecast == 'Snow') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/13d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/13d.png');
 
-            } else if (weatherDescriptionForecast == 'mist') {
+                } else if (weatherDescriptionForecast == 'mist') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/50d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/50d.png');
 
-            } else if (weatherMainForecast == 'Drizzle') {
+                } else if (weatherMainForecast == 'Drizzle') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/09d.png');
-            } else if (weatherMainForecast == 'Clouds') {
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/09d.png');
+                } else if (weatherMainForecast == 'Clouds') {
 
-                imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/09d.png');
+                    imgForecast.setAttribute('src', 'http://openweathermap.org/img/w/09d.png');
+                }
+
+                // set the temperature
+                var h4Forecast = document.createElement('h3');
+                h4Forecast.setAttribute('class', 'h4_forecast');
+
+                var temperatureForecast = listForecast[i].main.temp;
+                //        console.log(temperatureForecast);
+                var tempShortForecast = (temperatureForecast - 273.15).toFixed(1);
+                //        console.log(tempShortForecast);
+                h4Forecast.innerHTML = tempShortForecast + ' °C';
+
+
+                eventTargetId.appendChild(h4Forecast);
+
+                console.log('END')
+
+
+
             }
 
-            // set the temperature
-            var h4Forecast = document.createElement('h3');
-            h4Forecast.setAttribute('class', 'h4_forecast');
-
-            var temperatureForecast = listForecast[i].main.temp;
-            //        console.log(temperatureForecast);
-            var tempShortForecast = (temperatureForecast - 273.15).toFixed(1);
-            //        console.log(tempShortForecast);
-            h4Forecast.innerHTML = tempShortForecast + ' °C';
-
-
-            eventTargetId.appendChild(h4Forecast);
-
-            console.log('END')
-
 
 
         }
-        
-        
-        
-    }
-        }
-     else {
-            
-             eventTargetId.classList.replace("div_icontemp_block", "div_icontemp");
+    } else {
+
+        eventTargetId.classList.replace("div_icontemp_block", "div_icontemp");
     }
 
 

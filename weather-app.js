@@ -26,6 +26,7 @@ fetchApi()
 
 function buildBoxInfo(data) {
 
+
     var bodyVar = document.getElementById('body');
     bodyVar.style.backgroundColor = "lightblue";
 
@@ -132,26 +133,37 @@ function buildBoxInfo(data) {
     var btnShowMore = document.querySelector('.btn_details');
 
     btnShowMore.addEventListener('click', function (event) {
+        
+        if (btnShowMore.innerHTML === 'Show more') {
+            
+            btnShowMore.setAttribute('id', idCityChosen);
+            console.log(btnShowMore);
 
-        btnShowMore.setAttribute('id', idCityChosen);
-        console.log(btnShowMore);
+            var idFromEvent = event.target.id;
 
-        var idFromEvent = event.target.id;
+            idCity = idCityChosen;
+            console.log(idCity);
 
-        idCity = idCityChosen;
-        console.log(idCity);
+            fetchForecast(event);
 
-        fetchForecast(event);
+            btnShowMore.innerHTML = 'Show less'
+        }
+
+        else {
+            document.querySelector('#forecast').style.display = "none";
+            btnShowMore.innerHTML = 'Show more'
+        }
 
     })
 }
 
+var inputCityHTML = document.querySelector('#input_city');
+var searchBtn = document.querySelector('#search-button');
+
 
 function filterCity(data) {
 
-    //   var bodyVar = document.querySelector('#body');
-    //    bodyVar.style.backgroundColor = "white"; 
-    //    document.querySelector('#body').style.backgroundColor = "white";
+
     document.querySelector('#tempMain').style.display = "block";
     document.querySelector('#forecast').style.display = "none";
 
@@ -160,8 +172,7 @@ function filterCity(data) {
     //    console.log('event')
     console.log(event);
 
-    var inputCityHTML = document.querySelector('#input_city');
-    var searchBtn = document.querySelector('#search-button');
+
 
     var valueFromInputHTML = inputCityHTML.value;
     console.log(valueFromInputHTML);
@@ -169,7 +180,7 @@ function filterCity(data) {
     city = valueFromInputHTML;
 
     fetchApi()
-
+    //    alert('sono qui');
 }
 
 var idCity = '';
@@ -188,7 +199,7 @@ function fetchForecast(event) {
             console.log(data.city.name);
 
             buildForecastSection(data);
-//            alert('FETCHforecast')
+            //            alert('FETCHforecast')
             console.log('FETCHforecast')
 
         });
@@ -263,7 +274,7 @@ function buildForecastSection(data) {
             clickForecastInfo(data, divIconTemp)
             console.log(event)
             console.log('CLLLLLICKED')
-            
+
         })
     }
     console.log(mainDivForecast);
@@ -404,18 +415,20 @@ function logIn() {
     //display chat + back btn
     if (document.querySelector('#isLogin').style.display == "none") {
 
-//        alert('NOOOOONE')
+        //        alert('NOOOOONE')
         document.querySelector('#isLogin').style.display = "flex";
 
 
         var btnLog = document.getElementById('log');
         btnLog.innerHTML = "back";
         console.log(btnLog)
+        
+        
 
     } else
     //hide chat + login btn
     {
-//        alert('FLEEEEEEX')
+        //        alert('FLEEEEEEX')
         document.querySelector('#isLogin').style.display = "none";
         var btnLog = document.getElementById('log');
         btnLog.innerHTML = "login"
@@ -435,6 +448,20 @@ function logIn() {
         console.log(email)
         console.log(user)
         getPost()
+        
+        var helloName = document.querySelector('.h1_class');
+        
+//        helloName.innerHTML = "Hi " + userName;
+        
+        var afterLogin = document.querySelector('.after_login');
+        
+        helloName.innerHTML = 'Welcome'
+        helloName.style.fontSize = '50px';
+        helloName.style.marginTop = '40px';
+        afterLogin.innerHTML = userName
+        
+        
+        
 
     }).catch(function (error) {
         // Handle Errors here.
